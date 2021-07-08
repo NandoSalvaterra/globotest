@@ -21,6 +21,9 @@ Teste para vaga de desenvolvedor iOS  feita atravez do link: https://www.intervi
 
 # App Rodando
 
+<img src="https://i.imgur.com/pZxKSuy.gif" width="600" height="330" />
+
+
 [img]https://i.imgur.com/pZxKSuy.gif[/img]
 
 
