@@ -37,10 +37,7 @@ class ViewModel: ObservableObject {
         let highestSequenceNumber = await withTaskGroup(of: Int.self) { group -> Int in
             var number: Int = 0
             for taskNumber in 1...numberOfTasks {
-                print("task de numero: \(taskNumber)")
-                let taskRangeNumbers = teste(maxNumber: maxNumber, taskNumber: taskNumber, numberOfTasks: numberOfTasks)
-                print("primeiro valor: \(taskRangeNumbers.0)")
-                print("segundo valor: \(taskRangeNumbers.1)")
+                let taskRangeNumbers = getRangeNumbers(maxNumber: maxNumber, taskNumber: taskNumber, numberOfTasks: numberOfTasks)
                 group.async { await self.getCollatzHighestNumber(startNumber: taskRangeNumbers.0, endNumber: taskRangeNumbers.1) }
             }
             for await value in group {
@@ -55,7 +52,7 @@ class ViewModel: ObservableObject {
         return highestSequenceNumber
     }
 
-    func teste(maxNumber: Int, taskNumber: Int, numberOfTasks: Int) -> (Int, Int) {
+    func getRangeNumbers(maxNumber: Int, taskNumber: Int, numberOfTasks: Int) -> (Int, Int) {
         let partialNumber =  maxNumber / numberOfTasks
         if taskNumber.isFirstTask() {
             return (0, partialNumber)
@@ -65,14 +62,6 @@ class ViewModel: ObservableObject {
             return (((partialNumber * taskNumber) - partialNumber), (partialNumber * taskNumber))
         }
     }
-
-//    async {
-//        PlaygroundPage.current.needsIndefiniteExecution = true
-//        let highestSequenceNumber = await execute(maxNumber: 1_000_000, numberOfTasks: 4)
-//        print("O maior numero gerador de sequencias é o: \(highestSequenceNumber)")
-//        PlaygroundPage.current.finishExecution()
-//    }
-
 }
 
 
