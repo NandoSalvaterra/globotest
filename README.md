@@ -19,6 +19,9 @@ Teste para vaga de desenvolvedor iOS  feita atravez do link: https://www.intervi
 - O projeto está configurado para disparar o processamento ao aparecer da view. O resultado pode ser conferido no console.
 
 
+# App Rodando
+
+(http://url/to/img.png)
 
 
 
